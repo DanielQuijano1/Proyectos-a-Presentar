@@ -1,0 +1,397 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --clr: #222327;
+}
+
+.titulo {
+    display: block;
+    height: 100px;
+    width: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+    font-size: 3em;
+    align-items: center;
+    border-bottom: 5px red solid;
+}
+
+.titulo-a {
+    padding-top: 20px;
+}
+
+main {
+    padding: 50px 0px 50px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e0e0e0;
+    flex-direction: column;
+}
+
+
+/*
+//----------------------------------------------------------------------
+                                TITULO PROYECTO
+//----------------------------------------------------------------------
+*/
+.tituloProyecto{
+    font-size: 1.5rem;
+    background: #111;
+    color: #fff;
+    width: 400px;
+    height: 60px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+/*
+//----------------------------------------------------------------------
+                                NAVEGADOR 1
+//----------------------------------------------------------------------
+*/
+
+
+.navegador1 {
+    width: 400px;
+    height: 200px;
+    padding-top: 50px;
+}
+
+.navegadorHome {
+    width: 400px;
+    height: 70px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: white;
+
+}
+
+.navegadorHome ul {
+    display: flex;
+    width: 400px;
+}
+
+.navegadorHome ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.navegadorHome ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.navegadorHome ul li a .icono {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--clr)
+}
+
+.navegadorHome ul li.active a .icono {
+    transform: translateY(-30px);
+}
+
+.navegadorHome ul li a .text {
+    position: absolute;
+    color: var(--clr);
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.navegadorHome ul li.active a .text {
+    opacity: 1;
+    transform: translateY(45px);
+}
+
+.indicador {
+    position: absolute;
+    top: 39.5%;
+    width: 70px;
+    height: 70px;
+    background: #d90429;
+    border-radius: 50%;
+    border: 6px solid #e0e0e0;
+    transition: 0.5s;
+}
+
+.indicador::before {
+    content: "";
+    position: absolute;
+    top: 44%;
+    left: -24px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 0px -10px 0 0 #e0e0e0;
+}
+
+.indicador::after {
+    content: "";
+    position: absolute;
+    top: 44%;
+    right: -24px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: 0px -10px 0 0 #e0e0e0;
+}
+
+.navegadorHome ul li:nth-child(1).active~.indicador {
+    transform: translateX(calc(70px * 0));
+}
+
+.navegadorHome ul li:nth-child(2).active~.indicador {
+    transform: translateX(calc(70px * 1));
+}
+
+.navegadorHome ul li:nth-child(3).active~.indicador {
+    transform: translateX(calc(70px * 2));
+}
+
+.navegadorHome ul li:nth-child(4).active~.indicador {
+    transform: translateX(calc(70px * 3));
+}
+
+.navegadorHome ul li:nth-child(5).active~.indicador {
+    transform: translateX(calc(70px * 4));
+}
+
+/*
+//----------------------------------------------------------------------
+                                NAVEGADOR 2
+//----------------------------------------------------------------------
+*/
+
+.navegador2 {
+    width: 400px;
+    height: 200px;
+    padding-top: 50px;
+    background: #c2c1c1;
+}
+
+.navegadorDropdown {
+    /* Para ponerlo arriba la derecha
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    */
+    width: 120px;
+    height: 60px;
+    background: #fff;
+    /*para ponerlo bien en el recuadro*/
+    position: relative;
+    left: 50px;
+    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    transition: height .5s, width .5s;
+    transition-delay: 0s, .75s;
+    overflow: hidden;
+}
+
+.navegadorDropdown.active {
+    width: 300px;
+    left: 50px;
+    height: 400px;
+    transition: width .5s, height .5s;
+    transition-delay: 0s, .75s;
+}
+
+.navegadorDropdown .userBox {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    transition: .5s;
+    transition-delay: .5s;
+}
+
+.navegadorDropdown.active .userBox {
+    width: calc(100% - 60px);
+    transition-delay: 0s;
+
+}
+
+.navegadorDropdown .userBox .imgBox {
+    position: relative;
+    min-width: 60px;
+    height: 60px;
+    overflow: hidden;
+    background: #000;
+    border-radius: 50%;
+    border: 10px solid #fff;
+}
+
+.navegadorDropdown .userBox .nombreUsuario {
+    white-space: nowrap;
+    color: #555;
+    font-size: 1.4rem;
+    align-self: center;
+    margin-bottom: 0;
+}
+
+.navegadorDropdown .userBox .imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.navegadorDropdown .menuDropdown {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navegadorDropdown .menuDropdown::before {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 2px;
+    background: #555;
+    transform: translateY(-10px);
+    box-shadow: 0 10px #555;
+    transition: .5s;
+}
+
+.navegadorDropdown .menuDropdown::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 2px;
+    background: #555;
+    transform: translateY(10px);
+    transition: .5s;
+}
+
+.navegadorDropdown.active .menuDropdown::before {
+    transform: translateY(0px) rotate(45deg);
+    box-shadow: 0 0 #555;
+}
+
+.navegadorDropdown.active .menuDropdown::after {
+    transform: translateY(0px) rotate(-45deg);
+    box-shadow: 0 0 #555;
+}
+
+.menuDropdownNavegador2{
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 60px);
+    margin-top: 60px;
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.menuDropdownNavegador2 li{
+ list-style: none;   
+}
+
+.menuDropdownNavegador2 li a{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 1em;
+    gap: 10px;
+    text-decoration: none;
+    color: #555;
+}
+
+.menuDropdownNavegador2 li a:hover{
+    color: #4e65ff;
+}
+
+.menuDropdownNavegador2 li a svg{
+    width: 22px;
+    height: 22px;
+}
+
+/*
+//----------------------------------------------------------------------
+                                SISTEMA DE RESERVAS
+//----------------------------------------------------------------------
+*/
+.paginas{
+    width: 400px;
+}
+
+.reservas{
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 0px;
+    
+}
+
+.reservas .btnIR{
+    background: #d90429;
+    width: 30px;
+    height: 30px;
+    border-radius: 50% ;
+}
+
+.reservas .btnIR1{
+    color: #fff;
+    text-decoration-line: none;
+}
+
+.reservas .btnIR1 svg{
+    width: 30px;
+    height: 30px;
+    border: 3px red solid;
+    border-radius: 50%;
+}
+
+.sistemaReservas{
+    font-size: 1.5em;
+    padding-left: 25px;
+}
+
+
+.footer{
+    width: 100%;
+    height: 100px;
+    background-color: #555;
+    color: #c2c1c1;
+    text-align: center;
+}
